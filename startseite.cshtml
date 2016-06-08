@@ -1,6 +1,6 @@
 ﻿@{
     var db = Database.Open("HomeDrinks_DB");
-    var sql = "SELECT * FROM test";
+    var sql = "SELECT * FROM Cocktails";
     var data = db.Query(sql);
 }
 
@@ -28,8 +28,18 @@
     <!---- Hier endet die Menüleiste--->
     <ul>
         @foreach( var row in data){
-         <li>   @row.name</li>
+         <li>   @row.Name</li>
         }
-    </ul>    
+    </ul> 
+        
+        <!---- Suchfeld--->
+        <input type="text" name="search" list="search">
+            <datalist id="search">    
+                @foreach( var row in data){
+                 <option value="@row.Name"></option>
+                }
+            </datalist>
+        </input> 
+        <!---- Suchfeld---> 
     </body>
 </html>
