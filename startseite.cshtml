@@ -1,0 +1,64 @@
+﻿@{
+    var db = Database.Open("HomeDrinks_DB");
+    var sql = "SELECT * FROM Cocktails";
+    var data = db.Query(sql);
+}
+
+<!DOCTYPE html>
+
+<html lang="de">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <title>Titel meiner Website</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link rel="stylesheet" href="CSS/StyleSheet.css">
+    </head>
+    <body>
+    <!---- Hier ist die Menüleiste--->
+    <nav id="navigation" class="clearfix">
+        <ul>
+            <li><a href="startseite.cshtml">Startseite</a></li>
+            <li><a href="favoriten.cshtml">Favoriten</a></li>
+            <li><a href="einkaufsliste">Einkaufliste</a></li>
+            <li><a href="cocktailliste">Cocktail-Liste</a></li>
+            <li><a href="#">Log-In</a></li>
+        </ul>
+    </nav>
+    <!---- Hier endet die Menüleiste--->
+    <ul>
+        @foreach( var row in data){
+         <li>   @row.Name</li>
+        }
+    </ul> 
+        
+        <!---- Suchfeld--->
+        <form method="post">
+        <input type="text" name="search" list="search">
+            <datalist id="search">    
+                @foreach( var row in data){
+                 <option value="@row.Name"></option>
+                }
+            </datalist>
+        </input>
+        <input type="submit" value="Absenden">
+        </form> 
+        <!---- Suchfeld---> 
+
+
+        @{
+    if (IsPost) {
+        string test = Request.Form["search"];
+     
+
+        <text>
+          You entered: <br />
+          @test <br />
+         
+        </text>
+    }
+}
+
+
+    </body>
+</html>
