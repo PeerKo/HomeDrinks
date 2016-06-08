@@ -12,9 +12,19 @@
         <meta charset="utf-8" />
         <title>Titel meiner Website</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link rel="stylesheet" href="CSS/StyleSheet.css">
     </head>
     <body>
-<ul>
+    <nav id="navigation" class="clearfix">
+        <ul>
+            <li><a href="Default.cshtml">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+    <ul>
         @foreach( var row in data){
          <li>   @row.name</li>
         }
