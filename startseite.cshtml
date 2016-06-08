@@ -33,13 +33,32 @@
     </ul> 
         
         <!---- Suchfeld--->
+        <form method="post">
         <input type="text" name="search" list="search">
             <datalist id="search">    
                 @foreach( var row in data){
                  <option value="@row.Name"></option>
                 }
             </datalist>
-        </input> 
+        </input>
+        <input type="submit" value="Absenden">
+        </form> 
         <!---- Suchfeld---> 
+
+
+        @{
+    if (IsPost) {
+        string test = Request.Form["search"];
+     
+
+        <text>
+          You entered: <br />
+          @test <br />
+         
+        </text>
+    }
+}
+
+
     </body>
 </html>
