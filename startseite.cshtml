@@ -1,6 +1,10 @@
 ﻿@{
     var db = Database.Open("HomeDrinks_DB");
+<<<<<<< HEAD
     var sql = "SELECT * FROM Cocktails";
+=======
+    var sql = "SELECT * FROM Zutaten";
+>>>>>>> refs/remotes/origin/Eddy-Branch
     var data = db.Query(sql);
 }
 
@@ -8,11 +12,19 @@
 
 <html lang="de">
     <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta charset="utf-8" />
+
         <title>Titel meiner Website</title>
+
+        <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+	    <script type="text/javascript" src="js/jquery-ui-1.8.custom.min.js"></script>
+	    <script type="text/javascript" src="js/main.js"></script>
+
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <link rel="stylesheet" href="CSS/StyleSheet.css">
+        <link type="text/css" href="CSS/redmond/jquery-ui-1.8.custom.css" rel="stylesheet" />
+   
     </head>
     <body>
     <!---- Hier ist die Menüleiste--->
@@ -30,6 +42,7 @@
         @foreach( var row in data){
          <li>   @row.Name</li>
         }
+
     </ul> 
         
         <!---- Suchfeld--->
@@ -59,6 +72,13 @@
     }
 }
 
+
+
+    </ul>
+    <form action="search.php">
+		<input type="text" id="search" name="search" /> <input type="submit" name="submit" value="Suchen" />
+	</form>
+	<div id="results"></div>              
 
     </body>
 </html>
