@@ -6,9 +6,9 @@
     top: 0;
     left: 0;
     background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.9);
+    background-color: rgba(23, 148, 202, 0.43);
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0s;
 }
 
 .overlay-content {
