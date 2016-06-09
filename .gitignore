@@ -49,4 +49,8 @@ App_Data/HomeDrinks_DB.sdf
 *.sdf
 *.sdf
 App_Data/HomeDrinks_DB.sdf
+<<<<<<< HEAD
+=======
+*.sdf
+>>>>>>> refs/remotes/origin/Peer-Branch
 App_Data/HomeDrinks_DB.sdf
