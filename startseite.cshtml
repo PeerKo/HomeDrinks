@@ -13,6 +13,8 @@
         <meta charset="utf-8" />
 
         <title>Willkommen bei Home Drinks</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <link rel="stylesheet" href="CSS/StyleSheet.css">
         <link rel="stylesheet" href="CSS/overlay-category.css">
@@ -51,27 +53,30 @@
 
     <!---- Suchfeld--->
 
-        <form method="post">
-        <input type="text" name="search" list="search">
+    
+        <input type="text" name="search" list="search" id="searchfield">
             <datalist id="search">    
                 @foreach( var row in data){
                  <option value="@row.Name"></option>
                 }
             </datalist>
         </input>
-        <input type="submit" value="Absenden">
-        </form> 
+        <button id="btnName">Click me!</button>
+   
     <!---- Suchfeld---> 
+        <ul class="justList">vcxvxcv</ul>
+        <script>
+        $('#btnName').click(function(){
+    var text = $('#searchfield').val() + '<button>x</button>';
+    if(text.length){
+        $('<li />', {html: text}).appendTo('ul.justList')
+    }
+});
 
-        @{
-        if (IsPost) {
-             string test = Request.Form["search"];
-             <text>
-             You entered: <br />
-             @test <br />         
-             </text>
-            }
-        }
+$('ul').on('click','button' , function(el){
+    $(this).parent().remove()
+});
+        </script>
 
     </body>
 </html>
