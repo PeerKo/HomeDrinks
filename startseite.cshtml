@@ -1,6 +1,8 @@
 ﻿@{
     var db = Database.Open("HomeDrinks_DB");
+
     var sql = "SELECT * FROM Zutaten";
+
     var data = db.Query(sql);
 }
 <!DOCTYPE html>
@@ -31,6 +33,7 @@
     </nav>
     <!---- Hier endet die Menüleiste--->
 
+
     <!---- Hier ist die Kategorieauswahl--->
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ open</span>
 
@@ -47,6 +50,7 @@
     <!---- Hier endet die Kategorieauswahl--->
 
     <!---- Suchfeld--->
+
         <form method="post">
         <input type="text" name="search" list="search">
             <datalist id="search">    
