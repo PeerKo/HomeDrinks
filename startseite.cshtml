@@ -1,32 +1,51 @@
 ﻿@{
     var db = Database.Open("HomeDrinks_DB");
-<<<<<<< HEAD
-    var sql = "SELECT * FROM Cocktails";
-=======
+
     var sql = "SELECT * FROM Zutaten";
->>>>>>> refs/remotes/origin/Eddy-Branch
+
     var data = db.Query(sql);
 }
+
+
+
 
 <!DOCTYPE html>
 
 <html lang="de">
     <head>
+        <script>
+        $(function() {
+ 
+        // if the function argument is given to overlay,
+        // it is assumed to be the onBeforeLoad event listener
+        $("a[rel]").overlay({
+ 
+        mask: 'darkred',
+        effect: 'apple',
+ 
+        onBeforeLoad: function() {
+ 
+            // grab wrapper element inside content
+            var wrap = this.getOverlay().find(".contentWrap");
+ 
+            // load the page specified in the trigger
+            wrap.load(this.getTrigger().attr("href"));
+        }
+ 
+         });
+            });
+        </script>
+
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta charset="utf-8" />
 
         <title>Titel meiner Website</title>
-
-        <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-	    <script type="text/javascript" src="js/jquery-ui-1.8.custom.min.js"></script>
-	    <script type="text/javascript" src="js/main.js"></script>
-
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <link rel="stylesheet" href="CSS/StyleSheet.css">
-        <link type="text/css" href="CSS/redmond/jquery-ui-1.8.custom.css" rel="stylesheet" />
-   
+        <link rel="stylesheet" href="CSS/overlay-apple.css">
     </head>
     <body>
+
     <!---- Hier ist die Menüleiste--->
     <nav id="navigation" class="clearfix">
         <ul>
@@ -38,14 +57,17 @@
         </ul>
     </nav>
     <!---- Hier endet die Menüleiste--->
-    <ul>
-        @foreach( var row in data){
-         <li>   @row.Name</li>
-        }
 
-    </ul> 
-        
-        <!---- Suchfeld--->
+
+    <!---- Hier ist die Kategorieauswahl--->
+    <a href="favoriten.cshtml" rel="#overlay" style="text-decoration:none">
+        <!-- remember that you can use any element inside the trigger -->
+         <button type="button">Show external page in overlay</button>
+    </a>
+    <!---- Hier endet die Kategorieauswahl--->
+
+    <!---- Suchfeld--->
+
         <form method="post">
         <input type="text" name="search" list="search">
             <datalist id="search">    
@@ -58,9 +80,8 @@
         </form> 
         <!---- Suchfeld---> 
 
-
         @{
-    if (IsPost) {
+        if (IsPost) {
         string test = Request.Form["search"];
      
 
@@ -71,14 +92,12 @@
         </text>
     }
 }
+        <!-- overlayed element -->
+<div class="apple_overlay" id="overlay">
+  <!-- the external content is loaded inside this tag -->
+  <div class="contentWrap"></div>
+</div>
 
-
-
-    </ul>
-    <form action="search.php">
-		<input type="text" id="search" name="search" /> <input type="submit" name="submit" value="Suchen" />
-	</form>
-	<div id="results"></div>              
 
     </body>
 </html>
