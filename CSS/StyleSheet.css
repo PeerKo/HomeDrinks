@@ -41,3 +41,8 @@ body {
 .clearfix:after {
   clear: both;
 }
+
+.result
+{
+	background-color: #00ffff;
+}

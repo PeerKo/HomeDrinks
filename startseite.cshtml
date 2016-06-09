@@ -1,19 +1,23 @@
 ﻿@{
     var db = Database.Open("HomeDrinks_DB");
-    var sql = "SELECT * FROM Cocktails";
+    var sql = "SELECT * FROM Zutaten";
     var data = db.Query(sql);
 }
-
 <!DOCTYPE html>
 
 <html lang="de">
     <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta charset="utf-8" />
-        <title>Titel meiner Website</title>
+
+        <title>Willkommen bei Home Drinks</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <link rel="stylesheet" href="CSS/StyleSheet.css">
+        <link rel="stylesheet" href="CSS/overlay-category.css">
+        <script src="JavaScript/overlay-category.js"></script>
+        
     </head>
+<!---- Wechsel zwischen Head und Body Bereich------------------------------------------------------------------------------------------------------>
     <body>
     <!---- Hier ist die Menüleiste--->
     <nav id="navigation" class="clearfix">
@@ -26,13 +30,23 @@
         </ul>
     </nav>
     <!---- Hier endet die Menüleiste--->
-    <ul>
-        @foreach( var row in data){
-         <li>   @row.Name</li>
-        }
-    </ul> 
-        
-        <!---- Suchfeld--->
+
+    <!---- Hier ist die Kategorieauswahl--->
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ open</span>
+
+
+    <div id="myNav" class="overlay">
+     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <div class="overlay-content">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+        </div>
+    </div>
+    <!---- Hier endet die Kategorieauswahl--->
+
+    <!---- Suchfeld--->
         <form method="post">
         <input type="text" name="search" list="search">
             <datalist id="search">    
@@ -43,22 +57,17 @@
         </input>
         <input type="submit" value="Absenden">
         </form> 
-        <!---- Suchfeld---> 
-
+    <!---- Suchfeld---> 
 
         @{
-    if (IsPost) {
-        string test = Request.Form["search"];
-     
-
-        <text>
-          You entered: <br />
-          @test <br />
-         
-        </text>
-    }
-}
-
+        if (IsPost) {
+             string test = Request.Form["search"];
+             <text>
+             You entered: <br />
+             @test <br />         
+             </text>
+            }
+        }
 
     </body>
 </html>
