@@ -42,23 +42,12 @@
 
 
     <!---- Hier ist die Kategorieauswahl--->
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ open</span>
-
-
-    <div id="myNav" class="overlay">
-     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <div class="overlay-content">
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
-        </div>
-    </div>
+   
     <!---- Hier endet die Kategorieauswahl--->
 
     <!---- Suchfeld--->
 
-    <form>
+    @*<form>
 
         <input type="text" name="search" list="search" id="searchfield" class="searchfield">
             <datalist id="search">    
@@ -69,52 +58,9 @@
         </input>
  
       <input type="submit" id="btnName">
-</form>
+</form>*@
    
-        <script>
-       var inputs = document.querySelectorAll('.searchfield');
-       for (var i = 0; i < inputs.length; i++) {
-           inputs[i].addEventListener('change', function() {
-               var optionFound = false,
-               datalist = this.list; 
-
-               for (var j = 0; j < datalist.options.length; j++) {
-                   if (this.value == datalist.options[j].value) {
-                       optionFound = true;
-                       break;
-                   }
-                }
-
-                if (optionFound) {
-                    this.setCustomValidity('');
-                } else {
-                    this.setCustomValidity('Please select a valid value.');
-                }
-            });
-        }
-
-       </script>
-
-
-
-    <!---- Suchfeld--->
-
-        <ul class="cocktaillist"></ul>
-
-        <script>
-
-        $('#btnName').onsubmit(function(){
-            var text = $('#searchfield').val() + '<button>x</button>';
-            if(text.length){
-                $('<li />', {html: text}).appendTo('ul.cocktaillist')
-            }
-        });
-
-        $('ul').on('click','button' , function(el){
-            $(this).parent().remove()
-        });
-
-        </script>
+<button type="button" onclick=@this.Session["hallo"]="jo">Click Me!  </button>
 
     </body>
 </html>
