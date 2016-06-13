@@ -5,6 +5,10 @@
 
     var data = db.Query(sql);
 }
+
+
+
+
 <!DOCTYPE html>
 
 <html lang="de">
@@ -14,11 +18,12 @@
 
         <title>Willkommen bei Home Drinks</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+       
 
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <link rel="stylesheet" href="CSS/StyleSheet.css">
         <link rel="stylesheet" href="CSS/overlay-category.css">
-        <script src="JavaScript/overlay-category.js"></script>
+        <script src="JavaScript/Script.js"></script>
         
     </head>
 <!---- Wechsel zwischen Head und Body Bereich------------------------------------------------------------------------------------------------------>
@@ -38,18 +43,8 @@
 
 
     <!---- Hier ist die Kategorieauswahl--->
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ open</span>
+    <button class="buttoncategory" onclick="location.href='Auswahlkategorien/category_level1.cshtml'">Zutaten hinzufügen +</button>
 
-
-    <div id="myNav" class="overlay">
-     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <div class="overlay-content">
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
-        </div>
-    </div>
     <!---- Hier endet die Kategorieauswahl--->
 
 
@@ -66,20 +61,18 @@
         <button id="btnName">Click me!</button>
    
     <!---- Suchfeld---> 
-        <ul class="justList">vcxvxcv</ul>
-        <script>
+        <ul class="justList"></ul>
+         <script>
         $('#btnName').click(function(){
-    var text = $('#searchfield').val() + '<button>x</button>';
-    if(text.length){
-        $('<li />', {html: text}).appendTo('ul.justList')
-    }
-});
+            var text = $('#searchfield').val() + '<button>x</button>';
+            if(text.length){
+                $('<li />', {html: text}).appendTo('ul.justList')
+            }
+        });
 
-$('ul').on('click','button' , function(el){
-    $(this).parent().remove()
-});
+        $('ul').on('click','button' , function(el){
+            $(this).parent().remove()
+        });
         </script>
-
-
     </body>
 </html>
