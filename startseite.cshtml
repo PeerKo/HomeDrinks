@@ -5,15 +5,10 @@
 
     var data = db.Query(sql);
 
-    Session["hallo"]="hi";
+     Session["hallo"]="hi";
 }
 
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/Peer-Branch
 <!DOCTYPE html>
 
 <html lang="de">
@@ -27,7 +22,6 @@
 
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <link rel="stylesheet" href="CSS/StyleSheet.css">
-        <link rel="stylesheet" href="CSS/overlay-category.css">
         <script src="JavaScript/Script.js"></script>
         
     </head>
@@ -51,83 +45,18 @@
     <button class="buttoncategory" onclick="location.href='Auswahlkategorien/category_level1.cshtml'">Zutaten hinzufügen +</button>
 
     <!---- Hier endet die Kategorieauswahl--->
+    @*<!---- Suchfeld--->
 
-
-    <!---- Suchfeld--->
-
-    <form>
-
-        <input type="text" name="search" list="search" id="searchfield" class="searchfield">
+    
+        <input type="text" name="search" list="search" id="searchfield">
             <datalist id="search">    
                 @foreach( var row in data){
                  <option value="@row.Name"></option>
                 }
             </datalist>
         </input>
- 
-      <input type="submit" id="btnName">
-</form>
+        <button id="btnName">Click me!</button>
    
-<<<<<<< HEAD
-    <!---- Suchfeld---> 
-        <ul class="justList"></ul>
-         <script>
-        $('#btnName').click(function(){
-            var text = $('#searchfield').val() + '<button>x</button>';
-            if(text.length){
-                $('<li />', {html: text}).appendTo('ul.justList')
-            }
-        });
-=======
-        <script>
-       var inputs = document.querySelectorAll('.searchfield');
-       for (var i = 0; i < inputs.length; i++) {
-           inputs[i].addEventListener('change', function() {
-               var optionFound = false,
-               datalist = this.list; 
-
-               for (var j = 0; j < datalist.options.length; j++) {
-                   if (this.value == datalist.options[j].value) {
-                       optionFound = true;
-                       break;
-                   }
-                }
-
-                if (optionFound) {
-                    this.setCustomValidity('');
-                } else {
-                    this.setCustomValidity('Please select a valid value.');
-                }
-            });
-        }
-
-       </script>
-
-
-
-    <!---- Suchfeld--->
-
-        <ul class="cocktaillist"></ul>
-
-        <script>
-
-        $('#btnName').onsubmit(function(){
-            var text = $('#searchfield').val() + '<button>x</button>';
-            if(text.length){
-                $('<li />', {html: text}).appendTo('ul.cocktaillist')
-            }
-        });
-
-        $('ul').on('click','button' , function(el){
-            $(this).parent().remove()
-        });
-
-        </script>
->>>>>>> refs/remotes/origin/Peer-Branch
-
-        $('ul').on('click','button' , function(el){
-            $(this).parent().remove()
-        });
-        </script>
+    <!---- Suchfeld--->*@ 
     </body>
 </html>
