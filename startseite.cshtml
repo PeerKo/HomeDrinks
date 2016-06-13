@@ -5,9 +5,8 @@
 
     var data = db.Query(sql);
 
-    Session["hallo"]="hi";
+     Session["hallo"]="hi";
 }
-
 
 
 <!DOCTYPE html>
@@ -19,11 +18,11 @@
 
         <title>Willkommen bei Home Drinks</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+       
 
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <link rel="stylesheet" href="CSS/StyleSheet.css">
-        <link rel="stylesheet" href="CSS/overlay-category.css">
-        <script src="JavaScript/overlay-category.js"></script>
+        <script src="JavaScript/Script.js"></script>
         
     </head>
 <!---- Wechsel zwischen Head und Body Bereich------------------------------------------------------------------------------------------------------>
@@ -41,26 +40,25 @@
     <!---- Hier endet die Menüleiste--->
 
 
+
     <!---- Hier ist die Kategorieauswahl--->
-   
+    <button class="buttoncategory" onclick="location.href='Auswahlkategorien/category_level1.cshtml'">Zutaten hinzufügen +</button>
     <!---- Hier endet die Kategorieauswahl--->
+    @*<!---- Suchfeld--->
 
-    <!---- Suchfeld--->
+    
+        <input type="text" name="search" list="search" id="searchfield">
 
-    @*<form>
-
-        <input type="text" name="search" list="search" id="searchfield" class="searchfield">
             <datalist id="search">    
                 @foreach( var row in data){
                  <option value="@row.Name"></option>
                 }
             </datalist>
         </input>
- 
-      <input type="submit" id="btnName">
-</form>*@
+
+        <button id="btnName">Click me!</button>
    
-<button type="button" onclick=@this.Session["hallo"]="jo">Click Me!  </button>
+    <!---- Suchfeld--->*@ 
 
     </body>
 </html>

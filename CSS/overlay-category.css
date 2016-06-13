@@ -6,9 +6,9 @@
     top: 0;
     left: 0;
     background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.9);
+    background-color: rgba(23, 148, 202, 0.43);
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0s;
 }
 
 .overlay-content {
@@ -46,4 +46,34 @@
     top: 15px;
     right: 35px;
   }
+}
+
+#overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:10;
+    height:100%;
+    width:100%;
+    background:#000;
+    filter:alpha(opacity=60);
+    -moz-opacity:.60;
+    opacity:.60;
+    display:none;
+}
+ 
+ 
+#container {
+    position:fixed!important;
+    position:absolute;
+    height:200px;
+    width:400px;
+    margin:-100px 0px 0px -200px;
+    top: 50%;
+    left: 50%;
+    background-color: #f5f5f5;
+    border: 1px solid #000000;
+    display:none;
+    z-index:1002;
+    padding:10px;
 }

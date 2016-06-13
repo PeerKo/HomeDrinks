@@ -1,6 +1,7 @@
 body { 
   font: .875em/1.618 Helvetica, Sans-serif; 
 }
+/*******Menü-Leiste startet hier**********/
 #navigation {
   background-color: #eee;
 }
@@ -41,8 +42,27 @@ body {
 .clearfix:after {
   clear: both;
 }
+/*******Menü-Leiste endet hier**********/
 
-.result
-{
-	background-color: #00ffff;
+/*******Kategorie-Button startet hier**********/
+.buttoncategory {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
 }
+
+.buttoncategory:hover {background-color: #3e8e41}
+
+.buttoncategory:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+/*******Kategorie-Button endet hier**********/
