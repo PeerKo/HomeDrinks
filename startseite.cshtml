@@ -4,11 +4,16 @@
     var sql = "SELECT * FROM Zutaten";
 
     var data = db.Query(sql);
+
+    Session["hallo"]="hi";
 }
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/Peer-Branch
 <!DOCTYPE html>
 
 <html lang="de">
@@ -50,16 +55,20 @@
 
     <!---- Suchfeld--->
 
-    
-        <input type="text" name="search" list="search" id="searchfield">
+    <form>
+
+        <input type="text" name="search" list="search" id="searchfield" class="searchfield">
             <datalist id="search">    
                 @foreach( var row in data){
                  <option value="@row.Name"></option>
                 }
             </datalist>
         </input>
-        <button id="btnName">Click me!</button>
+ 
+      <input type="submit" id="btnName">
+</form>
    
+<<<<<<< HEAD
     <!---- Suchfeld---> 
         <ul class="justList"></ul>
          <script>
@@ -69,6 +78,52 @@
                 $('<li />', {html: text}).appendTo('ul.justList')
             }
         });
+=======
+        <script>
+       var inputs = document.querySelectorAll('.searchfield');
+       for (var i = 0; i < inputs.length; i++) {
+           inputs[i].addEventListener('change', function() {
+               var optionFound = false,
+               datalist = this.list; 
+
+               for (var j = 0; j < datalist.options.length; j++) {
+                   if (this.value == datalist.options[j].value) {
+                       optionFound = true;
+                       break;
+                   }
+                }
+
+                if (optionFound) {
+                    this.setCustomValidity('');
+                } else {
+                    this.setCustomValidity('Please select a valid value.');
+                }
+            });
+        }
+
+       </script>
+
+
+
+    <!---- Suchfeld--->
+
+        <ul class="cocktaillist"></ul>
+
+        <script>
+
+        $('#btnName').onsubmit(function(){
+            var text = $('#searchfield').val() + '<button>x</button>';
+            if(text.length){
+                $('<li />', {html: text}).appendTo('ul.cocktaillist')
+            }
+        });
+
+        $('ul').on('click','button' , function(el){
+            $(this).parent().remove()
+        });
+
+        </script>
+>>>>>>> refs/remotes/origin/Peer-Branch
 
         $('ul').on('click','button' , function(el){
             $(this).parent().remove()
